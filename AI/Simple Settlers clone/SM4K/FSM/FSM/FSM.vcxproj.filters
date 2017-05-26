@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{b41ba5dc-d70f-4cd6-b005-35b6f88b8840}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="StateHandling">
+      <UniqueIdentifier>{bade0170-cfb8-4e25-9025-6c53062e8355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SM4K base">
+      <UniqueIdentifier>{baa219bc-8e0c-4062-b359-271b2d51642d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TileHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="messageDispatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitStates.cpp">
+      <Filter>StateHandling</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera2D.cpp">
+      <Filter>SM4K base</Filter>
+    </ClCompile>
+    <ClCompile Include="loadShaders.cpp">
+      <Filter>SM4K base</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>SM4K base</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>SM4K base</Filter>
+    </ClCompile>
+    <ClCompile Include="myWindow.cpp">
+      <Filter>SM4K base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>SM4K base</Filter>
+    </ClCompile>
+    <ClCompile Include="Text2D.cpp">
+      <Filter>SM4K base</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>SM4K base</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>SM4K base</Filter>
+    </ClCompile>
+    <ClCompile Include="AISystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shapeGenerators.cpp">
+      <Filter>SM4K base</Filter>
+    </ClCompile>
+    <ClCompile Include="HiveMind.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="messageTimers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TileHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image_write.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphAlgorithms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphEdgeTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphNodeTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeTypeEnum.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SparseGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="messageDispatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="telegramMessages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitStates.h">
+      <Filter>StateHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>StateHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>StateHandling</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera2D.h">
+      <Filter>SM4K base</Filter>
+    </ClInclude>
+    <ClInclude Include="loadShaders.h">
+      <Filter>SM4K base</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>SM4K base</Filter>
+    </ClInclude>
+    <ClInclude Include="myWindow.h">
+      <Filter>SM4K base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>SM4K base</Filter>
+    </ClInclude>
+    <ClInclude Include="Text2D.h">
+      <Filter>SM4K base</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>SM4K base</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>SM4K base</Filter>
+    </ClInclude>
+    <ClInclude Include="AISystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="shapeGenerators.hpp">
+      <Filter>SM4K base</Filter>
+    </ClInclude>
+    <ClInclude Include="HiveMind.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameHandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="messageTimers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fragmentShader.gsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="vertexShader.gsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="TextFragmentShader.gsl">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="TextVertexShader.gsl">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

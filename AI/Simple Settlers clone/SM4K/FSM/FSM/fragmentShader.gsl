@@ -1,0 +1,20 @@
+#version 330 core
+
+in vec2 UV;
+out vec4 color;
+
+uniform vec4 extraColor;
+uniform sampler2D myTextureSampler;
+uniform bool line;
+
+void main() {
+	if(line)
+	{
+		color = extraColor;
+	}
+	else
+	{
+		color = extraColor*texture2D(myTextureSampler, vec2(UV.x, 1.0-UV.y));
+	}
+	
+}
