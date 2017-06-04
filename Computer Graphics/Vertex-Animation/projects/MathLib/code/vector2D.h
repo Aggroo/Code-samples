@@ -11,10 +11,9 @@ namespace CGMath
 		inline vector2D()
 		{
 
-			for (int i = 0; i < 2; i++)
-			{
-				vec[i] = 0;
-			}
+			vec[0] = 0;
+			vec[1] = 1;
+
 		}
 
 		inline vector2D(int x, int y)
@@ -41,26 +40,23 @@ namespace CGMath
 
 		}
 
-		//vector + vector operators överlagring
+		//vector + vector operators ï¿½verlagring
 		inline vector2D operator+(vector2D vect)
 		{
 			vector2D new_vec;
 
-			for (int i = 0; i < 2; i++)
-			{
-				new_vec[i] = vec[i] + vect[i];
-			}
+			new_vec[0] = vec[0] + vect[0];
+			new_vec[1] = vec[1] + vect[1];
 
 			return new_vec;
 		}
+
 		inline vector2D operator-(vector2D& vect)
 		{
 			vector2D new_vec;
 
-			for (int i = 0; i < 2; i++)
-			{
-				new_vec[i] = vec[i] - vect[i];
-			}
+			new_vec[0] = vec[0] - vect[0];
+			new_vec[1] = vec[1] - vect[1];
 
 			return new_vec;
 		}
@@ -69,10 +65,8 @@ namespace CGMath
 		{
 			vector2D new_vec;
 
-			for (int i = 0; i < 2; i++)
-			{
-				new_vec[i] = vec[i] * constant;
-			}
+			new_vec[0] = vec[0] * constant;
+			new_vec[1] = vec[1] * constant;
 
 			return new_vec;
 		}
@@ -81,10 +75,8 @@ namespace CGMath
 		{
 			vector2D new_vec;
 
-			for (int i = 0; i < 2; i++)
-			{
-				new_vec[i] = vec[i] / constant;
-			}
+			new_vec[0] = vec[0] / constant;
+			new_vec[1] = vec[1] / constant;
 
 			return new_vec;
 		}
@@ -108,10 +100,9 @@ namespace CGMath
 		{
 			vector2D new_vec;
 
-			for (int i = 0; i < 2; i++)
-			{
-				new_vec[i] = vec[i] * constant;
-			}
+			new_vec[0] = vec[0] * constant;
+			new_vec[1] = vec[1] * constant;
+
 			return new_vec;
 		}
 
@@ -120,10 +111,8 @@ namespace CGMath
 			float length;
 			float tmp = 0;
 
-			for (int i = 0; i < 2; i++)
-			{
-				tmp += pow(vec[i], 2);
-			}
+			tmp += pow(vec[0], 2);
+			tmp += pow(vec[1], 2);
 
 			length = sqrt(tmp);
 
@@ -133,11 +122,9 @@ namespace CGMath
 		inline vector2D vecNorm()
 		{
 			vector2D new_vec;
-		
-			for (int i = 0; i < 2; i++)
-			{
-				new_vec[i] = vec[i] / vecLength();
-			}
+
+			new_vec[0] = vec[0] / vecLength();
+			new_vec[1] = vec[1] / vecLength();
 		
 			return new_vec;
 		}
@@ -146,21 +133,18 @@ namespace CGMath
 		{
 			float result = 0;
 
-			for (int i = 0; i < 2; i++)
-			{
-				result += vec[i] * vect[i];
-			}
+			result += vec[0] * vect[0];
+			result += vec[1] * vect[1];
+
 			return result;
 		}
 
 
 		inline friend std::ostream& operator<<(std::ostream& stream, const vector2D& vect)
 		{
-			for (int y = 0; y < 2; y++)
-			{
-				stream << vect.vec[y] << " ";
+			stream << vect.vec[0] << " ";
+			stream << vect.vec[1] << " ";
 
-			}
 			std::cout << std::endl;
 			return stream;
 		}

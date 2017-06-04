@@ -43,7 +43,7 @@ namespace CGMath
 
 		}
 
-		//Vector + vector operators överlagring
+		//Vector + vector operators ï¿½verlagring
 		inline vector3D operator+(const vector3D& vect) const
 		{
 			vector3D new_vec;
@@ -88,6 +88,18 @@ namespace CGMath
 
 			return new_vec;
 		}
+
+		//Vector += vector operators overload
+		inline vector3D operator+=(const vector3D& vect) const
+		{
+			vector3D new_vec;
+
+			new_vec[0] = vec[0] + vect[0];
+			new_vec[1] = vec[1] + vect[1];
+			new_vec[2] = vec[2] + vect[2];
+
+			return new_vec;
+		}
 		
 		inline float &operator[](int pos)
 		{
@@ -123,6 +135,11 @@ namespace CGMath
 		inline float& z() 
 		{
 			return vec[2];
+		}
+
+		inline vector3D Negative() const
+		{
+			return vector3D(-vec[0],-vec[1],-vec[2]);
 		}
 
 		inline vector3D vecMult(const float& constant)
@@ -163,18 +180,18 @@ namespace CGMath
 			return new_vec;
 		}
 
-		inline float dotProd(vector3D vect)
+		inline static float Dot(vector3D vec,vector3D vect)
 		{
 			float result = 0;
 
-			for (int i = 0; i < 3; i++)
-			{
-				result += vec[i] * vect[i];
-			}
+			result += vec[0] * vect[0];
+			result += vec[1] * vect[1];
+			result += vec[2] * vect[2];
+
 			return result;
 		}
 
-		inline vector3D crossProd(vector3D& vect)
+		inline static vector3D Cross(vector3D vec, vector3D vect)
 		{
 			vector3D new_vec;
 

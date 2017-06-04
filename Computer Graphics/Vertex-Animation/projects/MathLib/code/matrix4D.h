@@ -2,7 +2,7 @@
 #include <iostream>
 #include <math.h>
 #include "vector4D.h"
-#include "quaternions.h"
+#include "Quaternion.h"
 
 
 namespace CGMath
@@ -12,14 +12,24 @@ namespace CGMath
 	public:
 		inline matrix4D()
 		{
+            matrice[0] = 0;
+            matrice[1] = 0;
+            matrice[2] = 0;
+            matrice[3] = 0;
 
-			for (int y = 0; y < 4; y++)
-			{
-				for (int x = 0; x < 4; x++)
-				{
-					matrice[y*4 + x] = 0;
-				}
-			}
+            matrice[4] = 0;
+            matrice[5] = 0;
+            matrice[6] = 0;
+            matrice[7] = 0;
+
+            matrice[8] = 0;
+            matrice[9] = 0;
+            matrice[10] = 0;
+            matrice[11] = 0;
+
+            matrice[12] = 0;
+            matrice[13] = 0;
+            matrice[14] = 0;
 
 			matrice[15] = 1;
 		}
@@ -55,7 +65,7 @@ namespace CGMath
 
 		}
 
-		inline matrix4D operator*(matrix4D rhs)
+		inline matrix4D operator*(matrix4D rhs) const
 		{
 			matrix4D new_matrix;
 
@@ -75,33 +85,40 @@ namespace CGMath
 			return new_matrix;
 		}
 
+
 		inline vector4D operator*(vector4D rhs)
 		{
 			vector4D new_vec;
 
-			float value = 0;
-			for (int y = 0; y < 4; y++)
-			{
-				value = 0.0;
-				for (int k = 0; k < 4; k++)
-				{
-					value += matrice[y*4 + k] * rhs[k];
-				}
-				new_vec[y] = value;
-			}
+			new_vec[0] = matrice[0]*rhs[0] + matrice[1]*rhs[1] + matrice[2]*rhs[2] + matrice[3]*rhs[3];
+			new_vec[1] = matrice[4]*rhs[0] + matrice[5]*rhs[1] + matrice[6]*rhs[2] + matrice[7]*rhs[3];
+			new_vec[2] = matrice[8]*rhs[0] + matrice[9]*rhs[1] + matrice[10]*rhs[2] + matrice[11]*rhs[3];
+			new_vec[3] = matrice[12]*rhs[0] + matrice[13]*rhs[1] + matrice[14]*rhs[2] + matrice[15]*rhs[3];
+
 			return new_vec;
 		}
 
 		inline matrix4D operator!()
 		{
 			matrix4D new_matrix;
-			for (int y = 0; y<4; y++)
-			{
-				for (int x = 0; x<4; x++)
-				{
-					new_matrix[x*4 + y] = matrice[y*4 + x];
-				}
-			}
+
+			new_matrix[0*4 + 0] = matrice[0*4 + 0];
+			new_matrix[0*4 + 1] = matrice[1*4 + 0];
+			new_matrix[0*4 + 2] = matrice[2*4 + 0];
+			new_matrix[0*4 + 3] = matrice[3*4 + 0];
+			new_matrix[1*4 + 0] = matrice[0*4 + 1];
+			new_matrix[1*4 + 1] = matrice[1*4 + 1];
+			new_matrix[1*4 + 2] = matrice[2*4 + 1];
+			new_matrix[1*4 + 3] = matrice[3*4 + 1];
+			new_matrix[2*4 + 0] = matrice[0*4 + 2];
+			new_matrix[2*4 + 1] = matrice[1*4 + 2];
+			new_matrix[2*4 + 2] = matrice[2*4 + 2];
+			new_matrix[2*4 + 3] = matrice[3*4 + 2];
+			new_matrix[3*4 + 0] = matrice[0*4 + 3];
+			new_matrix[3*4 + 1] = matrice[1*4 + 3];
+			new_matrix[3*4 + 2] = matrice[2*4 + 3];
+			new_matrix[3*4 + 3] = matrice[3*4 + 3];
+
 			return new_matrix;
 		}
 
@@ -114,9 +131,25 @@ namespace CGMath
 		{
 			matrix4D identityMatrix;
 
-			identityMatrix[0] = 1; identityMatrix[1] = 0; identityMatrix[2] = 0;
-			identityMatrix[3] = 0; identityMatrix[4] = 1; identityMatrix[5] = 0;
-			identityMatrix[6] = 0; identityMatrix[7] = 0; identityMatrix[8] = 1;
+			identityMatrix[0] = 1;
+			identityMatrix[1] = 0;
+			identityMatrix[2] = 0;
+			identityMatrix[3] = 0;
+
+			identityMatrix[4] = 0;
+			identityMatrix[5] = 1;
+			identityMatrix[6] = 0;
+			identityMatrix[7] = 0;
+
+			identityMatrix[8] = 0;
+			identityMatrix[9] = 0;
+			identityMatrix[10] = 1;
+			identityMatrix[11] = 0;
+
+			identityMatrix[12] = 0;
+			identityMatrix[13] = 0;
+			identityMatrix[14] = 0;
+			identityMatrix[15] = 1;
 
 			return identityMatrix;
 		}
@@ -245,8 +278,7 @@ namespace CGMath
 			{
 				return identity(); // cannot inverse, make it identity matrix
 			}
-			
-			
+
 			// divide by the determinant
 			invDeterminant = 1.0f / determinant;
 			
@@ -254,7 +286,6 @@ namespace CGMath
 			{
 				new_matrix[i] = invDeterminant * tmp[i];
 			}
-			
 
 			return new_matrix;
 		}
@@ -322,9 +353,9 @@ namespace CGMath
 			vector4D rotVec;
 			matrix4D rotMatrix;
 
-			rotVec.x() = vecX;
-			rotVec.y() = vecY;
-			rotVec.z() = vecZ;
+			rotVec[0] = vecX;
+			rotVec[1] = vecY;
+			rotVec[2] = vecZ;
 
 			float c = cos(angle);
 			float s = sin(angle);
@@ -365,9 +396,9 @@ namespace CGMath
 		inline float* getPointer()
 		{
 			
-			return matrice;
+			return &matrice[0];
 		}
-		
+
 		inline static matrix4D translationMatrix(vector4D vec)
 		{
 			matrix4D transMatrix;
@@ -387,8 +418,8 @@ namespace CGMath
 			float verticalFOV = 1.02974426;
 			float f = 1 / tan(verticalFOV / 2);
 			float aspect = 1;
-			float farZ = 1000;
-			float nearZ = 0.01f;
+			float farZ = 100000.0f;
+			float nearZ = 0.001f;
 			fovMatrix[0] = f / aspect;
 			fovMatrix[5] = f;
 			fovMatrix[10] = (farZ + nearZ) / (nearZ - farZ);
@@ -398,6 +429,38 @@ namespace CGMath
 			
 
 			return fovMatrix;
+		}
+
+		inline static matrix4D LookAt( vec4 eye, vec4 target, vec4 up)
+		{
+			vec4 zaxis = vector4D::Normalize(eye - target);    // The "forward" vector.
+			vec4 xaxis = vector4D::Normalize(vector4D::Cross(up, zaxis));// The "right" vector.
+			vec4 yaxis = vector4D::Cross(zaxis, xaxis);
+
+			// Create a 4x4 view matrix from the right, up, forward and eye position vectors
+			matrix4D viewMatrix(xaxis.x(), xaxis.y(), xaxis.z(), -vec4::Dot(xaxis, eye),
+								yaxis.x(), yaxis.y(), yaxis.z(), -vec4::Dot(yaxis, eye),
+								zaxis.x(), zaxis.y(), zaxis.z(), -vec4::Dot(zaxis, eye),
+								0, 0, 0, 1);
+
+			return viewMatrix;
+		}
+
+		inline vector4D GetXAxis()
+		{
+			vector4D vec(matrice[0],matrice[4],matrice[8]);
+			return vec;
+		}
+
+		inline vector4D GetYAxis()
+		{
+			vector4D vec(matrice[1],matrice[5],matrice[9]);
+			return vec;
+		}
+		inline vector4D GetZAxis()
+		{
+			vector4D vec(matrice[2],matrice[6],matrice[10]);
+			return vec;
 		}
 		
 		inline static matrix4D Transpose(matrix4D m)
@@ -432,7 +495,7 @@ namespace CGMath
 			return vec;
 		}
 		
-		inline static matrix4D RotationQuaternion(const quaternions& q)
+		inline static matrix4D RotationQuaternion(const Quaternion& q)
 		{
 			float xx = q.X() * q.X();
 			float xy = q.X() * q.Y();
